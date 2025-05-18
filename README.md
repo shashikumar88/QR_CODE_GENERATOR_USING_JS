@@ -1,87 +1,118 @@
-# QR Code Generator 🧾➡️🔳
+# QR Code Generator
 
-A simple and responsive **QR Code Generator** web application built using **HTML, CSS, and JavaScript**. This tool allows users to generate QR codes for any text or URL and download them as PNG images.
+A lightweight, responsive QR code generator web application built with HTML, CSS, and JavaScript.
 
----
+![QR Code Generator Screenshot](https://i.imgur.com/JQZ1l4D.png)
 
-## 🚀 Features
+## Features
 
-- ✅ Generate QR codes for text or URLs
-- ✅ Choose from multiple QR code sizes (100x100, 200x200, 300x300)
-- ✅ Download the generated QR code as an image
-- ✅ Fully responsive and user-friendly design
+- Generate QR codes from text or URLs
+- Adjustable QR code size (Small, Medium, Large)
+- Instant preview of generated QR code
+- Download functionality (PNG format)
+- Clean, modern UI with responsive design
+- Toast notifications for user feedback
+- Loading spinner during generation
+- Helpful tooltips for guidance
+- Keyboard support (Enter key to generate)
 
----
+## Technologies Used
 
-## 🛠️ Technologies Used
+- HTML5
+- CSS3 (with CSS Variables)
+- JavaScript (Vanilla JS)
+- [QRCode.js](https://github.com/davidshimjs/qrcodejs) library
+- [Font Awesome](https://fontawesome.com/) for icons
+- Google Fonts (Inter)
 
-- **HTML5**
-- **CSS3** (with media queries for responsiveness)
-- **JavaScript (Vanilla)**
-- **[qrcodejs](https://github.com/davidshimjs/qrcodejs)** (QR code library)
+## Live Demo
 
----
+[View Live Demo](https://your-username.github.io/qr-code-generator/)
 
-## 📸 Screenshots
+## Installation
 
-| Desktop View | Mobile View |
-|--------------|-------------|
-| ![desktop](screenshots/desktop.png) | ![mobile](screenshots/mobile.png) |
+No installation required - this is a client-side only application. Simply open `index.html` in any modern browser.
 
-*Add your screenshots inside a `screenshots/` folder in the repo.*
-
----
-
-## 🔧 How to Use
+For local development:
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/qr-code-generator.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd qr-code-generator
-   ```
-3. Open the `index.html` file in your browser:
-   ```bash
-   open index.html
-   ```
+```bash
+git clone https://github.com/your-username/qr-code-generator.git
+Open index.html in your browser.
 
----
+Deployment
+GitHub Pages
+Ensure your project is pushed to GitHub
 
-## ⚙️ Folder Structure
+Go to your repository Settings
 
-```
-qr-code-generator/
-│
-├── index.html
-├── README.md
-├── screenshots/
-│   ├── desktop.png
-│   └── mobile.png
-```
+Navigate to Pages in the left sidebar
 
----
+Select "Deploy from a branch" and choose your main branch
 
-## 📩 Feedback / Suggestions
+Click Save
 
-If you find any bugs or have suggestions to improve this project, feel free to open an [issue](https://github.com/your-username/qr-code-generator/issues) or create a [pull request](https://github.com/your-username/qr-code-generator/pulls).
+Your app will be available at: https://your-username.github.io/qr-code-generator/
 
----
+Netlify
+Drag and drop the project folder to Netlify's drop zone
 
-## 📄 License
+Or connect your GitHub repository to Netlify
 
-This project is licensed under the [MIT License](LICENSE).
+Usage
+Enter text or URL in the input field
 
----
+Select desired QR code size
 
-## 🙌 Author
+Click "Generate" button
 
-**Shashi Kumar K**
+Once generated, click "Save" to download the QR code
 
-- 🔗 [GitHub](https://github.com/shashikumar88)
-- 🔗 [LinkedIn](https://www.linkedin.com/in/shashi-kumar-k-1470b9278/)
+Customization
+You can easily customize the appearance by modifying the CSS variables in the :root selector:
 
----
+css
+:root {
+  --primary-color: #4361ee;       /* Main brand color */
+  --primary-hover: #3a56d4;      /* Hover state for primary color */
+  --secondary-color: #f8f9fa;    /* Background color for inputs */
+  --text-color: #2b2d42;         /* Main text color */
+  --light-gray: #e9ecef;         /* Border and subtle UI elements */
+  --medium-gray: #adb5bd;        /* Placeholder and secondary text */
+  --white: #ffffff;              /* Background color */
+}
+Browser Support
+The application works on all modern browsers including:
 
-> Made with ❤️ using pure JavaScript!
+Chrome
+
+Firefox
+
+Safari
+
+Edge
+
+Opera
+
+Contributing
+Contributions are welcome! Please follow these steps:
+
+Fork the project
+
+Create your feature branch (git checkout -b feature/AmazingFeature)
+
+Commit your changes (git commit -m 'Add some AmazingFeature')
+
+Push to the branch (git push origin feature/AmazingFeature)
+
+Open a Pull Request
+
+License
+Distributed under the MIT License. See LICENSE for more information.
+
+Acknowledgements
+QRCode.js - QR code generation library
+
+Font Awesome - Beautiful icons
+
+Google Fonts - Inter font family
