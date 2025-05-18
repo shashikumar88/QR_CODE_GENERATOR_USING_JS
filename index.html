@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Code Generator</title>
+  <style>
+    /* Base styles */
+    * {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(to right, #e0eafc, #cfdef3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+form {
+  background: #ffffff;
+  padding: 35px 45px;
+  border-radius: 16px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+  transition: box-shadow 0.3s ease;
+}
+
+form:hover {
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 24px;
+  text-align: center;
+  color: #1f2937;
+}
+
+label {
+  font-size: 15px;
+  color: #374151;
+  display: block;
+  margin-bottom: 6px;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 22px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 15px;
+  background-color: #f9fafb;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: #3b82f6;
+  background-color: #fff;
+  outline: none;
+}
+
+button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  background-color: #3b82f6;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #2563eb;
+}
+
+a {
+  text-decoration: none;
+  color: #3b82f6;
+  font-size: 14px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+  form {
+    padding: 25px 20px;
+  }
+
+  button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+  </style>
+</head>
+<body>
+<div class="box">
+  <form action="">
+    <h3>Generate QR Code</h3>
+
+    <label for="url">Enter Text or URL:</label>
+    <input type="text" id="url" placeholder="Type your text here" />
+
+    <label for="size">Select Size:</label>
+    <select id="qrsize" name="size">
+      <option value="100x100">100x100</option>
+      <option value="200x200">200x200</option>
+      <option value="300x300">300x300</option>
+    </select>
+     <div id="container">
+
+     </div>
+    <div>
+      <button type="button" id="generate">Generate</button>
+      <a href="" id="download" download="qr_code.png">Download</a>
+    </div>
+  </form>
+</div>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        let textEle = document.getElementById("url")
+        let sizeEle = document.getElementById("qrsize")
+        let containerEle = document.getElementById("container")
+        let generateEle = document.getElementById("generate")
+        let downloadEle = document.getElementById("download")
+        let size=sizeEle.value;
+        generateEle.addEventListener("click",(e)=>{
+            e.preventDefault();
+            isEmptyInput();
+        })
+        downloadEle.addEventListener("click",()=>{
+            const canvas =document.querySelector("container canvas")
+            if (canvas){
+              const imageData = canvas.toDataURL("image/png");
+              downloadEle.setAttribute("href",imageData)
+              downloadEle.setAttribute("download","qr-code.png")
+            }
+        })
+        
+        sizeEle.addEventListener("change",(e)=>{
+            size= e.target.value;
+         })
+        function isEmptyInput(){
+            textEle.value.length>0
+            ? generateQRCode()
+            :alert("Enter the text to generate QRCODE")
+        }
+        function generateQRCode(){
+            container.innerHTML="";
+            new QRCode(containerEle,{
+                text:textEle.value,
+                height:parseInt(sizeEle.value),
+                width:parseInt(sizeEle.value),
+                colorlight:"#0000ff",
+                colorDark:"green",
+            });
+            console.log(container.firstChild)
+        }
+        
+    </script>
+</body>
+</html>
